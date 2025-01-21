@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  best_admin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NODE_ENV=production
+        - NEXT_PUBLIC_API_ENDPOINT=https://app.bestelectronics.com.bd/api/v1
+    ports:
+      - 3004:3004
+    container_name: best_admin
