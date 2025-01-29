@@ -158,6 +158,7 @@ export default function OrderTable({ AllOrders }) {
   };
 
   const getOutletName = (outletId) => {
+    console.log(outletId)
     const outlet = outlets?.outlets?.outlet?.find((outlet) => outlet?._id === outletId);
     return outlet ? outlet.outletName : outletId;
   };
@@ -565,7 +566,7 @@ export default function OrderTable({ AllOrders }) {
       doc.save("dataTable.pdf");
     };
   };
-
+console.log()
   return (
     <main>
       {isLoading && <Loading />}
@@ -805,7 +806,7 @@ export default function OrderTable({ AllOrders }) {
                           </td>
 
                           <td className="py-4 text-sm text-center font-medium text-gray-900 whitespace-nowrap" key={item?._id}>
-                            {getOutletName(item.outlet)}
+                            {getOutletName(item.outlet?._id)}
                           </td>
                           <td className="py-4 text-sm font-medium text-gray-900 text-center whitespace-nowrap ">
                             {item.orderType}
