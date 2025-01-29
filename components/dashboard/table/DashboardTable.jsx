@@ -45,6 +45,7 @@ export default function DashboardTable() {
 
   const getOutletName = (outletId) => {
     const outlet = outlets?.outlets?.outlet?.find((outlet) => outlet?._id === outletId);
+    console.log(outletId)
     return outlet ? outlet.outletName : outletId;
   };
 
@@ -62,7 +63,6 @@ export default function DashboardTable() {
     };
     return date.toLocaleDateString(undefined, options);
   }
-
   return (
     <section className="mb-10">
       <div className="flex justify-between items-center">
@@ -81,7 +81,6 @@ export default function DashboardTable() {
             <div className="inline-block min-w-full align-middle">
               <div className="overflow-hidden">
                 <table className="min-w-full table-auto dark:divide-gray-700 overflow-x-scroll">
-                  {/* table head */}
                   <thead className="bg-gray-100 ">
                     <tr>
                       <th
@@ -143,7 +142,7 @@ export default function DashboardTable() {
                           {formatDate(item.createdAt)}
                         </td>
                         <td className="py-4 text-sm font-medium text-gray-900 whitespace-nowrap" key={item?._id}>
-                          {getOutletName(item.outlet)}
+                          {getOutletName(item.outlet?._id)}
                         </td>
                         <td className="py-4 text-sm font-medium text-gray-900 whitespace-nowrap ">
                           <span className="text-md">৳</span>
